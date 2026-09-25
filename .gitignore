@@ -31,3 +31,22 @@ google-services.json
 
 # Android Profiling
 *.hprof
+# ============ Flutter / Dart ============
+**/doc/api/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+flutter/build/
+flutter/.dart_tool/
+flutter/android/.gradle/
+flutter/android/local.properties
+flutter/android/app/build/
+flutter/ios/Flutter/
+flutter/ios/Pods/
+*.g.dart
+
+# ============ General ============
+*.env
