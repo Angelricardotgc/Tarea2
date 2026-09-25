@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <!-- Checkbox -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Casilla de verificación" />
+                <TextView style="@style/ItemDesc" android:text="Selección binaria. La casilla superior controla a las dos inferiores y muestra estado indeterminado cuando solo una está marcada." />
+                <CheckBox android:id="@+id/cbPadre" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Seleccionar todo (indeterminado)" />
+                <CheckBox android:id="@+id/cbHija1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="24dp" android:text="Notificaciones por correo" />
+                <CheckBox android:id="@+id/cbHija2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="24dp" android:text="Notificaciones push" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Radio -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Botones de opción" />
+                <TextView style="@style/ItemDesc" android:text="Grupo de opciones mutuamente excluyentes: solo una puede estar seleccionada." />
+                <RadioGroup android:id="@+id/radioGroup" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <RadioButton android:id="@+id/rbTarjeta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tarjeta de crédito" android:checked="true" />
+                    <RadioButton android:id="@+id/rbEfectivo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Efectivo" />
+                    <RadioButton android:id="@+id/rbTransferencia" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Transferencia" />
+                </RadioGroup>
+                <TextView android:id="@+id/tvRadioResultado" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Switch -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Interruptor (switch)" />
+                <TextView style="@style/ItemDesc" android:text="Activa o desactiva una opción de forma inmediata, típicamente usado para ajustes." />
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switchModo"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Modo avión" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Sliders -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Deslizadores" />
+                <TextView style="@style/ItemDesc" android:text="El primero permite elegir un valor único; el segundo, un rango entre dos valores." />
+                <TextView android:id="@+id/tvSliderValor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Volumen: 50" android:textSize="13sp" />
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderSimple"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:valueFrom="0" android:valueTo="100" android:value="50" />
+                <TextView android:id="@+id/tvRangoValor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Precio: $200 - $800" android:textSize="13sp" />
+                <com.google.android.material.slider.RangeSlider
+                    android:id="@+id/rangeSlider"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:valueFrom="0" android:valueTo="1000" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Dropdown -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Lista desplegable de selección" />
+                <TextView style="@style/ItemDesc" android:text="Menú desplegable para elegir una única opción de una lista predefinida." />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="Método de envío"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                    <AutoCompleteTextView
+                        android:id="@+id/actvEnvio"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Date/time picker -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Selector de fecha y hora" />
+                <TextView style="@style/ItemDesc" android:text="Abre diálogos nativos del sistema para elegir una fecha o una hora específica." />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnFecha" style="@style/Widget.Material3.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="4dp" android:text="Elegir fecha" />
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnHora" style="@style/Widget.Material3.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="4dp" android:text="Elegir hora" />
+                </LinearLayout>
+                <TextView android:id="@+id/tvFechaHora" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:textSize="13sp" android:text="Nada seleccionado aún" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Chips -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Chips de filtro" />
+                <TextView style="@style/ItemDesc" android:text="Etiquetas seleccionables de forma múltiple, usadas comúnmente para filtrar resultados." />
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupFiltros"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:singleLine="false">
+                    <com.google.android.material.chip.Chip style="@style/Widget.Material3.Chip.Filter" android:id="@+id/chipEconomico" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Económico" />
+                    <com.google.android.material.chip.Chip style="@style/Widget.Material3.Chip.Filter" android:id="@+id/chipRapido" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rápido" />
+                    <com.google.android.material.chip.Chip style="@style/Widget.Material3.Chip.Filter" android:id="@+id/chipEcologico" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ecológico" />
+                </com.google.android.material.chip.ChipGroup>
+                <TextView android:id="@+id/tvChipsResultado" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

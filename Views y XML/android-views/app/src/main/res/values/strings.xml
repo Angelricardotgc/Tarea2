@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Catálogo de UI</string>
+    <string name="nav_home">Pantalla principal</string>
+    <string name="nav_section1">1. Entrada de texto</string>
+    <string name="nav_section2">2. Botones y acciones</string>
+    <string name="nav_section3">3. Elementos de selección</string>
+    <string name="nav_section4">4. Listas y colecciones</string>
+    <string name="nav_section5">5. Información y retroalimentación</string>
+    <string name="nav_section6">6. Contenedores y estructura</string>
+    <string name="open_drawer">Abrir menú</string>
+</resources>

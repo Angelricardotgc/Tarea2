@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="mx.edu.ipn.uicatalog.ui.home.HomeFragment"
+        android:label="@string/nav_home"
+        tools:layout="@layout/fragment_home"
+        xmlns:tools="http://schemas.android.com/tools" />
+
+    <fragment
+        android:id="@+id/section1Fragment"
+        android:name="mx.edu.ipn.uicatalog.ui.section1.Section1Fragment"
+        android:label="@string/nav_section1" />
+
+    <fragment
+        android:id="@+id/section2Fragment"
+        android:name="mx.edu.ipn.uicatalog.ui.section2.Section2Fragment"
+        android:label="@string/nav_section2" />
+
+    <fragment
+        android:id="@+id/section3Fragment"
+        android:name="mx.edu.ipn.uicatalog.ui.section3.Section3Fragment"
+        android:label="@string/nav_section3" />
+
+    <fragment
+        android:id="@+id/section4Fragment"
+        android:name="mx.edu.ipn.uicatalog.ui.section4.Section4Fragment"
+        android:label="@string/nav_section4" />
+
+    <fragment
+        android:id="@+id/section5Fragment"
+        android:name="mx.edu.ipn.uicatalog.ui.section5.Section5Fragment"
+        android:label="@string/nav_section5" />
+
+    <fragment
+        android:id="@+id/section6Fragment"
+        android:name="mx.edu.ipn.uicatalog.ui.section6.Section6Fragment"
+        android:label="@string/nav_section6" />
+
+</navigation>

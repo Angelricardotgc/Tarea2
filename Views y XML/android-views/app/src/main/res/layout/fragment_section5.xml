@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <!-- Estilos de texto -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Estilos, tamaños y énfasis de texto" />
+                <TextView style="@style/ItemDesc" android:text="Jerarquía tipográfica usada para dar orden e importancia visual al contenido." />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Título grande" android:textSize="22sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Subtítulo" android:textSize="16sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Texto normal de párrafo" android:textSize="14sp" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Texto en cursiva" android:textSize="14sp" android:textStyle="italic" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Texto secundario, más tenue" android:textSize="12sp" android:alpha="0.6" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Imágenes -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Imagen local e imagen desde URL" />
+                <TextView style="@style/ItemDesc" android:text="La primera imagen es un recurso local con escalado centerInside; la segunda se descarga de internet con escalado centerCrop." />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/ivLocal"
+                        android:layout_width="0dp" android:layout_height="120dp" android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:background="@color/surface_light"
+                        android:padding="16dp"
+                        android:scaleType="centerInside"
+                        android:src="@android:drawable/ic_menu_gallery" />
+                    <ImageView
+                        android:id="@+id/ivUrl"
+                        android:layout_width="0dp" android:layout_height="120dp" android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:background="@color/surface_light"
+                        android:scaleType="centerCrop" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Progreso -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Indicadores de progreso" />
+                <TextView style="@style/ItemDesc" android:text="Presiona el botón para ver el progreso determinado avanzar; el indeterminado gira de forma continua mientras se realiza una tarea de duración desconocida." />
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progresoLineal"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:indicatorColor="@color/brand_primary" android:max="100" android:progress="0" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:gravity="center_vertical" android:orientation="horizontal">
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/progresoCircularIndeterminado"
+                        android:layout_width="36dp" android:layout_height="36dp"
+                        android:indeterminate="true" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnIniciarProgreso"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="Iniciar progreso determinado" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Toast / snackbar -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Mensaje emergente (toast) y con acción (snackbar)" />
+                <TextView style="@style/ItemDesc" android:text="El toast es una notificación breve sin acción; el snackbar aparece en la parte inferior y puede incluir un botón de acción." />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnToast" style="@style/Widget.Material3.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="4dp" android:text="Mostrar toast" />
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnSnackbar" style="@style/Widget.Material3.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="4dp" android:text="Mostrar snackbar" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Diálogo -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Diálogo de confirmación" />
+                <TextView style="@style/ItemDesc" android:text="Interrumpe el flujo para pedir al usuario que confirme una acción importante o irreversible." />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDialogo"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Eliminar cuenta" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Bottom sheet -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Hoja inferior (bottom sheet)" />
+                <TextView style="@style/ItemDesc" android:text="Panel que se desliza desde abajo sin abandonar el contexto de la pantalla actual." />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBottomSheet"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Abrir hoja inferior" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tarjeta, separador, badge -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Tarjeta, separador y distintivo" />
+                <TextView style="@style/ItemDesc" android:text="La tarjeta agrupa contenido relacionado, el separador divide secciones y el distintivo numérico resalta una cantidad, como notificaciones sin leer." />
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp" app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="#DDDDDD">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="12dp" android:text="Soy el contenido de una tarjeta anidada de ejemplo." android:textSize="13sp" />
+                </com.google.android.material.card.MaterialCardView>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="12dp" android:background="#DDDDDD" />
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Bandeja de entrada" android:textSize="14sp" />
+                    <TextView
+                        android:layout_width="22dp" android:layout_height="22dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_badge"
+                        android:gravity="center"
+                        android:text="5"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

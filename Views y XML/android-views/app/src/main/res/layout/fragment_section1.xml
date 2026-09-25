@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <!-- 1. Campo de texto simple + conexión con Sección 4 -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Campo de texto simple" />
+                <TextView style="@style/ItemDesc" android:text="Campo básico con etiqueta flotante. Escribe un nombre y agrégalo a tus favoritos: aparecerá en la lista de la Sección 4 (conexión entre secciones)." />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="Nombre favorito">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSimple"
+                        android:layout_width="match_parent" android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAgregarFavorito"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Agregar a favoritos (→ Sección 4)" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2. Validación -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Campo con validación" />
+                <TextView style="@style/ItemDesc" android:text="Verifica en tiempo real que el texto tenga al menos 4 caracteres y muestra un mensaje de error visible si no cumple." />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilValidacion"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="Usuario (mín. 4 caracteres)"
+                    app:errorEnabled="true">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etValidacion"
+                        android:layout_width="match_parent" android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 3. Contraseña -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Campo de contraseña" />
+                <TextView style="@style/ItemDesc" android:text="Oculta el texto ingresado y permite mostrarlo u ocultarlo con el ícono del extremo derecho." />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="Contraseña"
+                    app:passwordToggleEnabled="true">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 4. Tipos de teclado -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Campos con distintos teclados" />
+                <TextView style="@style/ItemDesc" android:text="El teclado del sistema cambia según el tipo de dato esperado: numérico, correo electrónico y teléfono." />
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Edad (numérico)">
+                    <com.google.android.material.textfield.TextInputEditText android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="Correo electrónico">
+                    <com.google.android.material.textfield.TextInputEditText android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="Teléfono">
+                    <com.google.android.material.textfield.TextInputEditText android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="phone" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 5. Multilínea -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Campo multilínea" />
+                <TextView style="@style/ItemDesc" android:text="Permite ingresar varias líneas de texto, útil para comentarios o descripciones largas." />
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Comentarios">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="textMultiLine" android:minLines="3" android:gravity="top" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 6. Autocompletado -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Sugerencias automáticas" />
+                <TextView style="@style/ItemDesc" android:text="Despliega una lista de opciones que se filtra mientras escribes." />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="Estado de la República"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                    <AutoCompleteTextView
+                        android:id="@+id/actvAutocompletado"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 7. Búsqueda -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Barra de búsqueda" />
+                <TextView style="@style/ItemDesc" android:text="Filtra en tiempo real una lista de frutas conforme escribes." />
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:iconifiedByDefault="false"
+                    app:queryHint="Buscar fruta..." />
+                <TextView
+                    android:id="@+id/tvResultadoBusqueda"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

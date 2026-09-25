@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <!-- 1. Lista vertical + selección de detalle + conexión con Sección 1 -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Lista vertical con selección de detalle" />
+                <TextView style="@style/ItemDesc" android:text="Al menos 15 elementos desplazables verticalmente. Los primeros elementos (⭐) provienen de lo que agregaste en la Sección 1. Toca cualquier elemento para ver su detalle." />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvVertical"
+                    android:layout_width="match_parent" android:layout_height="280dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2. Cuadrícula -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Cuadrícula de elementos" />
+                <TextView style="@style/ItemDesc" android:text="Distribuye los elementos en columnas, ideal para contenido visual como categorías o galerías." />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGrid"
+                    android:layout_width="match_parent" android:layout_height="220dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 3. Encabezados de sección -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Lista con encabezados de sección" />
+                <TextView style="@style/ItemDesc" android:text="Agrupa contactos por letra inicial. Contiene dos tipos de elemento distintos: encabezados de grupo y contactos." />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvEncabezados"
+                    android:layout_width="match_parent" android:layout_height="260dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 4. Swipe to delete -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Deslizar para eliminar" />
+                <TextView style="@style/ItemDesc" android:text="Desliza cualquier tarea hacia la izquierda para eliminarla de la lista." />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSwipe"
+                    android:layout_width="match_parent" android:layout_height="200dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 5. Pull to refresh -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Actualizar arrastrando hacia abajo" />
+                <TextView style="@style/ItemDesc" android:text="Arrastra la lista hacia abajo para simular la carga de un nuevo elemento." />
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/swipeRefresh"
+                    android:layout_width="match_parent" android:layout_height="200dp">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvRefresh"
+                        android:layout_width="match_parent" android:layout_height="match_parent" />
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 6. Estado vacío -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Estado vacío" />
+                <TextView style="@style/ItemDesc" android:text="Cuando una lista no tiene elementos, se muestra un mensaje ilustrativo en vez de dejar la pantalla en blanco." />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnToggleVacio"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Vaciar lista" />
+                <FrameLayout android:layout_width="match_parent" android:layout_height="150dp">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvVacioLista"
+                        android:layout_width="match_parent" android:layout_height="match_parent" />
+                    <LinearLayout
+                        android:id="@+id/layoutEstadoVacio"
+                        android:layout_width="match_parent" android:layout_height="match_parent"
+                        android:orientation="vertical" android:gravity="center"
+                        android:visibility="gone">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📭" android:textSize="36sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No hay elementos por mostrar" android:textSize="13sp" />
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 7. Pestañas deslizables -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Pestañas con contenido deslizable" />
+                <TextView style="@style/ItemDesc" android:text="Cambia de contenido tocando una pestaña o deslizando horizontalmente con el dedo." />
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:tabMode="fixed" />
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent" android:layout_height="130dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

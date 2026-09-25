@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <!-- Fila / columna / superposición -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Distribución en fila, columna y superpuesta" />
+                <TextView style="@style/ItemDesc" android:text="Tres formas básicas de organizar vistas: una tras otra en fila, apiladas en columna, o superpuestas una sobre otra." />
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Fila (LinearLayout horizontal):" android:textSize="12sp" android:alpha="0.7" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <View android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:layout_margin="2dp" android:background="@color/brand_primary" />
+                    <View android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:layout_margin="2dp" android:background="@color/brand_secondary" />
+                    <View android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:layout_margin="2dp" android:background="@color/brand_primary_variant" />
+                </LinearLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Columna (LinearLayout vertical):" android:textSize="12sp" android:alpha="0.7" />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                    <View android:layout_width="match_parent" android:layout_height="24dp" android:layout_margin="2dp" android:background="@color/brand_primary" />
+                    <View android:layout_width="match_parent" android:layout_height="24dp" android:layout_margin="2dp" android:background="@color/brand_secondary" />
+                </LinearLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="Superpuesta (FrameLayout):" android:textSize="12sp" android:alpha="0.7" />
+                <FrameLayout android:layout_width="120dp" android:layout_height="80dp">
+                    <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/brand_primary" />
+                    <View android:layout_width="70dp" android:layout_height="50dp" android:layout_gravity="center" android:background="@color/brand_secondary" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|end" android:padding="4dp" android:text="encima" android:textColor="@android:color/white" android:textSize="10sp" />
+                </FrameLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Scroll -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Contenedor con desplazamiento vertical" />
+                <TextView style="@style/ItemDesc" android:text="Un ScrollView permite mostrar contenido más alto que la pantalla y desplazarlo con el dedo. Esta misma sección es un ejemplo en uso." />
+                <ScrollView android:layout_width="match_parent" android:layout_height="90dp" android:background="@color/surface_light">
+                    <TextView
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:padding="10dp" android:textSize="13sp"
+                        android:text="Este bloque de texto es más largo que el espacio visible de 90dp reservado para él, así que puedes desplazarte dentro de este recuadro para leerlo completo. Sigue desplazando hacia abajo… un poco más… ¡y llegaste al final del contenedor con scroll!" />
+                </ScrollView>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Top bar -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Barra superior con título y acciones" />
+                <TextView style="@style/ItemDesc" android:text="Encabezado fijo que identifica la pantalla actual y ofrece accesos directos a acciones frecuentes. Toca el ícono para ver una acción." />
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/miniToolbar"
+                    android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+                    android:background="@color/brand_primary" android:titleTextColor="@android:color/white"
+                    app:title="Mi pantalla" app:menu="@menu/mini_toolbar_menu" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Bottom nav -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Barra de navegación inferior" />
+                <TextView style="@style/ItemDesc" android:text="Permite cambiar entre las secciones principales de una app. El menú lateral de esta aplicación cumple el mismo propósito; aquí se muestra una barra inferior de ejemplo." />
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavDemo"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:menu="@menu/mini_bottom_nav" />
+                <TextView android:id="@+id/tvBottomNavResultado" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Constraint / pesos -->
+        <com.google.android.material.card.MaterialCardView style="@style/ItemCard">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView style="@style/ItemTitle" android:text="Distribución con pesos proporcionales" />
+                <TextView style="@style/ItemDesc" android:text="Tres bloques que reparten el ancho disponible en proporción 1:2:1 usando layout_weight, sin importar el tamaño de pantalla." />
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <TextView android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:background="@color/brand_primary" android:gravity="center" android:text="1" android:textColor="@android:color/white" />
+                    <TextView android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="2" android:background="@color/brand_secondary" android:gravity="center" android:text="2" android:textColor="@android:color/white" />
+                    <TextView android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:background="@color/brand_primary" android:gravity="center" android:text="1" android:textColor="@android:color/white" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
