@@ -30,7 +30,7 @@ Como requisito de integración, un texto capturado en la **Sección 1 (Entrada d
 
 ### Android Views / XML (`android-views/`)
 
-- [Ver README](Views/README.md)
+- [Ver README](views/README.md)
 
 ### Flutter (`flutter/`)
 
@@ -83,14 +83,22 @@ Como requisito de integración, un texto capturado en la **Sección 1 (Entrada d
 
 ## Reflexión final
 
-_(completar al terminar las tres versiones)_
+De las tres tecnologías utilizadas, Flutter fue la que permitió construir la interfaz de forma más rápida, gracias a su sistema de widgets y al hot reload, que aceleran considerablemente el ciclo de prueba y ajuste visual.
 
-- **¿En cuál tecnología resultó más rápido construir la interfaz?**
-- **¿Cuál generó código más legible?**
-- **¿Qué dificultades encontré en cada una?**
-- **¿Con cuál preferiría trabajar y por qué?**
+En cuanto a legibilidad, Flutter también resultó ser la tecnología con el código más ordenado y fácil de seguir, principalmente por la forma declarativa en que se anidan los widgets y por no depender de archivos XML separados como en Views, ni de la configuración adicional que a veces requiere Compose (dependencias, versiones, APIs experimentales).
+
+Cada tecnología presentó sus propios retos: Views/XML implicó coordinar archivos XML y código Kotlin por separado; Jetpack Compose requirió familiarizarse con el manejo de estado (remember, mutableStateOf) y con la gestión de dependencias de Gradle; y Flutter, aunque más ágil en general, tiene su propia curva de aprendizaje en cuanto a la organización de widgets y el ecosistema de paquetes.
 
 ## Referencias
 
-_(agregar en formato APA conforme se consulten fuentes)_
+- Flutter - Build apps for any screen. (s/f). Flutter.dev. Recuperado el 26 de septiembre de 2026, de https://flutter.dev/
 
+- (S/f-b). Amazon.com. Recuperado el 26 de septiembre de 2026, de https://aws.amazon.com/es/what-is/flutter/
+
+- (S/f-c). Reddit.com. Recuperado el 26 de septiembre de 2026, de https://www.reddit.com/r/Kotlin/comments/gzhpvg/how_is_android_app_ui_done_in_kotlin/
+
+- Diseños en vistas. (s/f). Android Developers. Recuperado el 26 de septiembre de 2026, de https://developer.android.com/develop/ui/views/layout/declaring-layout?hl=es-419
+
+- Kotlin para Jetpack Compose. (s/f). Android Developers. Recuperado el 26 de septiembre de 2026, de https://developer.android.com/develop/ui/compose/kotlin?hl=es-419
+
+- Aspectos básicos de Jetpack Compose. (s/f). Android Developers. Recuperado el 26 de septiembre de 2026, de https://developer.android.com/codelabs/jetpack-compose-basics?hl=es-419
