@@ -26,11 +26,11 @@ Como requisito de integración, un texto capturado en la **Sección 1 (Entrada d
 
 ### Jetpack Compose (`android-compose/`)
 
-- [Ver README](android-views/README.md)
+- [Ver README](android/README.md)
 
 ### Android Views / XML (`android-views/`)
 
-- [Ver README](Views-XML/README.md)
+- [Ver README](Views/README.md)
 
 ### Flutter (`flutter/`)
 
