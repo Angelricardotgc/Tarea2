@@ -1,8 +1,10 @@
 package com.gmail.atellezgironcastro.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import com.gmail.atellezgironcastro.datos.RepositorioListas
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -27,18 +29,31 @@ fun EntradaTextoScreen() {
     ) {
         Text("Sección 1: Entrada de Texto", style = MaterialTheme.typography.headlineSmall)
 
-        // 1. Campo de texto simple
+        // 1. Campo de texto simple (con conexión a la Sección 4)
         ElementoDemo(
             nombre = "Campo de texto simple",
-            explicacion = "Permite al usuario escribir texto libre. Usa una etiqueta (label) que indica qué información se espera."
+            explicacion = "Permite al usuario escribir texto libre. Este dato, al confirmarse, se agrega a la lista de la Sección 4 (conexión entre secciones)."
         ) {
             var texto by remember { mutableStateOf("") }
-            OutlinedTextField(
-                value = texto,
-                onValueChange = { texto = it },
-                label = { Text("Nombre completo") },
-                modifier = Modifier.fillMaxWidth()
-            )
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                OutlinedTextField(
+                    value = texto,
+                    onValueChange = { texto = it },
+                    label = { Text("Nombre completo") },
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Button(
+                    onClick = {
+                        if (texto.isNotBlank()) {
+                            RepositorioListas.agregar(texto)
+                            texto = ""
+                        }
+                    },
+                    enabled = texto.isNotBlank()
+                ) {
+                    Text("Agregar a la lista (Sección 4)")
+                }
+            }
         }
 
         // 2. Campo con validación
@@ -141,35 +156,28 @@ fun EntradaTextoScreen() {
         // 6. Campo con sugerencias / desplegable de opciones
         ElementoDemo(
             nombre = "Campo con sugerencias automáticas",
-            explicacion = "Muestra una lista desplegable de opciones a medida que el usuario escribe, ayudando a completar el texto más rápido."
+            explicacion = "Muestra una lista desplegable de opciones a medida que el usuario escribe. Toca una sugerencia para completarla automáticamente."
         ) {
             val opciones = listOf("Manzana", "Mango", "Melón", "Mandarina", "Naranja")
             var texto by remember { mutableStateOf("") }
-            var expandido by remember { mutableStateOf(false) }
             val sugerencias = opciones.filter {
-                it.contains(texto, ignoreCase = true) && texto.isNotEmpty()
+                it.contains(texto, ignoreCase = true) && texto.isNotEmpty() && it != texto
             }
             Column {
                 OutlinedTextField(
                     value = texto,
-                    onValueChange = {
-                        texto = it
-                        expandido = true
-                    },
-                    label = { Text("Escribe una fruta") },
+                    onValueChange = { texto = it },
+                    label = { Text("Escribe una fruta (prueba con 'm')") },
                     modifier = Modifier.fillMaxWidth()
                 )
-                if (expandido && sugerencias.isNotEmpty()) {
-                    Column(modifier = Modifier.fillMaxWidth()) {
-                        sugerencias.forEach { sugerencia ->
-                            Text(
-                                text = sugerencia,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(8.dp)
-                            )
-                        }
-                    }
+                sugerencias.forEach { sugerencia ->
+                    Text(
+                        text = sugerencia,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(8.dp)
+                            .clickable { texto = sugerencia }
+                    )
                 }
             }
         }
@@ -177,17 +185,31 @@ fun EntradaTextoScreen() {
         // 7. Barra de búsqueda
         ElementoDemo(
             nombre = "Barra de búsqueda",
-            explicacion = "Campo especializado para búsquedas, con ícono de lupa y acción al confirmar."
+            explicacion = "Campo especializado para búsquedas. Filtra en tiempo real una lista de ejemplo (nombres de países) mientras escribes."
         ) {
+            val paises = listOf("México", "Argentina", "España", "Colombia", "Chile", "Perú", "Ecuador")
             var busqueda by remember { mutableStateOf("") }
-            OutlinedTextField(
-                value = busqueda,
-                onValueChange = { busqueda = it },
-                placeholder = { Text("Buscar...") },
-                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = "Buscar") },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth()
-            )
+            val resultados = if (busqueda.isEmpty()) paises else paises.filter {
+                it.contains(busqueda, ignoreCase = true)
+            }
+            Column {
+                OutlinedTextField(
+                    value = busqueda,
+                    onValueChange = { busqueda = it },
+                    placeholder = { Text("Buscar país...") },
+                    leadingIcon = { Icon(Icons.Filled.Search, contentDescription = "Buscar") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                if (resultados.isEmpty()) {
+                    Text("Sin resultados", style = MaterialTheme.typography.bodySmall)
+                } else {
+                    resultados.forEach { pais ->
+                        Text(pais, modifier = Modifier.padding(vertical = 4.dp))
+                    }
+                }
+            }
         }
     }
 }
