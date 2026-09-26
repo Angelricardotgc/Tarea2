@@ -30,7 +30,7 @@ Como requisito de integración, un texto capturado en la **Sección 1 (Entrada d
 
 ### Android Views / XML (`android-views/`)
 
-- [Ver README](views/README.md)
+- [Ver README](views\views/README.md)
 
 ### Flutter (`flutter/`)
 
