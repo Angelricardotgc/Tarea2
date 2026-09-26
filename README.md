@@ -45,8 +45,8 @@ Como requisito de integración, un texto capturado en la **Sección 1 (Entrada d
 | Campo de contraseña | EditText (inputType=textPassword) | OutlinedTextField (visualTransformation) | TextField (obscureText) |
 | Campos con teclado especial | EditText (inputType) | OutlinedTextField (keyboardOptions) | TextField (keyboardType) |
 | Campo multilínea | EditText (inputType=textMultiLine) | OutlinedTextField (minLines) | TextField (maxLines) |
-| Campo con sugerencias | AutoCompleteTextView | Lista filtrada + OutlinedTextField | _(pendiente)_ |
-| Barra de búsqueda | SearchView | OutlinedTextField + ícono | _(pendiente)_ |
+| Campo con sugerencias | AutoCompleteTextView | Lista filtrada + OutlinedTextField | Autocomplete + TextField |
+| Barra de búsqueda | SearchView | OutlinedTextField + ícono | TextField + prefixIcon |
 | Botón relleno | Button (estilo Filled) | Button | ElevatedButton |
 | Botón con contorno | Button (estilo Outlined) | OutlinedButton | OutlinedButton |
 | Botón de texto | Button (estilo Text) | TextButton | TextButton |
